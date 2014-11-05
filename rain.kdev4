@@ -1,0 +1,4 @@
+[Project]
+Name=rain
+Manager=KDevCMakeManager
+VersionControl=kdevgit
