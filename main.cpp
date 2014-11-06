@@ -1,5 +1,8 @@
-#include <avr.h>
+//#include <avr.h>
 
-void main() {
+int main() {
+  int i=1;
+  i++;
   
+  return i;
 }
