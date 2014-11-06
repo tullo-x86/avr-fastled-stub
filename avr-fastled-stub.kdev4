@@ -1,4 +1,4 @@
 [Project]
-Name=rain
+Name=avr-fastled-stub
 Manager=KDevCMakeManager
 VersionControl=kdevgit

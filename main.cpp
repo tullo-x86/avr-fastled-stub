@@ -1,8 +1,6 @@
-//#include <avr.h>
+//#include "FastLED/FastLED.h"
 
 int main() {
-  int i=1;
-  i++;
   
-  return i;
+  return 0;
 }
