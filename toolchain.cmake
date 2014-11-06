@@ -19,7 +19,7 @@ IF(NOT CMAKE_BUILD_TYPE)
 ENDIF(NOT CMAKE_BUILD_TYPE)
 
 set(
-    AVR_PROGRAMMER avrispmkII
+    AVR_PROGRAMMER stk500v1
     CACHE STRING
     "programmer hardware model. See 'avrdude -c ?' for a full list."
 )
@@ -31,7 +31,7 @@ set(
 )
 
 set(
-    AVR_DEFAULT_MCUS atmega32
+    AVR_DEFAULT_MCUS atmega328p
     CACHE STRING
     "List of default target MCUs. See 'avr-gcc --target-help' for valid values."
 )
@@ -108,7 +108,7 @@ function(add_avr_executable EXECUTABLE_NAME)
         ${AVRDUDE} -p ${upload_mcu} -c ${AVR_PROGRAMMER} ${AVRDUDE_OPTIONS}
             -U flash:w:${upload_file}
             -U eeprom:w:${eeprom_image}
-            -P usb -b 115200 # XXX
+            -P /dev/ttyACM0 -b 19200 # XXX
         DEPENDS ${upload_file} ${eeprom_image}
         COMMENT "Uploading ${upload_file} to ${upload_mcu} using programmer ${AVR_PROGRAMMER}"
     )
