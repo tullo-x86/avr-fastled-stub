@@ -5,6 +5,7 @@ project(rain)
 add_definitions(
     -DARDUINO
     -DF_CPU=16000000
+    -DNEED_CXX_BITS
 )
 
 set(SOURCE
@@ -15,12 +16,21 @@ set(HEADERS
 )
 
 include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}/FastLED/
     /home/tully/Arduino/arduino-1.0.6/hardware/arduino/cores/arduino/
     /home/tully/Arduino/arduino-1.0.6/hardware/arduino/variants/standard/
 )
 
-#add_subdirectory("${PROJECT_SOURCE_DIR}/FastLED")
+file(GLOB FASTLED_SOURCE
+  ${CMAKE_CURRENT_SOURCE_DIR}/FastLED/*.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/FastLED/*.h
+)
 
-add_avr_executable(rain ${SOURCE} ${HEADERS})
+#file(GLOB WIRING_SOURCE
+#  ${CMAKE_CURRENT_SOURCE_DIR}/wiring/*.c
+#  ${CMAKE_CURRENT_SOURCE_DIR}/wiring/*.h
+#)
+
+add_avr_executable(rain ${FASTLED_SOURCE} ${SOURCE} ${HEADERS})
 
 #install(TARGETS rain RUNTIME DESTINATION bin)

@@ -107,9 +107,9 @@ function(add_avr_executable EXECUTABLE_NAME)
         upload_${EXECUTABLE_NAME}
         ${AVRDUDE} -p ${upload_mcu} -c ${AVR_PROGRAMMER} ${AVRDUDE_OPTIONS}
             -U flash:w:${upload_file}
-            -U eeprom:w:${eeprom_image}
+            #-U eeprom:w:${eeprom_image}
             -P /dev/ttyACM0 -b 19200 # XXX
-        DEPENDS ${upload_file} ${eeprom_image}
+        DEPENDS ${upload_file} #${eeprom_image}
         COMMENT "Uploading ${upload_file} to ${upload_mcu} using programmer ${AVR_PROGRAMMER}"
     )
     add_custom_target(
