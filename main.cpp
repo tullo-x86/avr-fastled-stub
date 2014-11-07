@@ -11,7 +11,7 @@
 
 // Define the array of leds
 CRGB leds[NUM_LEDS];
-
+/*
 long unsigned int us = 0;
 long unsigned int micros() {
   return ++us;
@@ -22,7 +22,7 @@ uint32_t millis() {
   return ++ms;
 }
 
-void delay(long unsigned int us) {}
+void delay(long unsigned int us) {}*/
 
 void fadeall() { for(int i = 0; i < NUM_LEDS; i++) { leds[i].nscale8(250); } }
 

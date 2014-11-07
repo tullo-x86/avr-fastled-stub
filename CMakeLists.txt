@@ -26,11 +26,11 @@ file(GLOB FASTLED_SOURCE
   ${CMAKE_CURRENT_SOURCE_DIR}/FastLED/*.h
 )
 
-#file(GLOB WIRING_SOURCE
-#  ${CMAKE_CURRENT_SOURCE_DIR}/wiring/*.c
-#  ${CMAKE_CURRENT_SOURCE_DIR}/wiring/*.h
-#)
+file(GLOB WIRING_SOURCE
+  ${CMAKE_CURRENT_SOURCE_DIR}/wiring/*.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wiring/*.h
+)
 
-add_avr_executable(rain ${FASTLED_SOURCE} ${SOURCE} ${HEADERS})
+add_avr_executable(rain ${WIRING_SOURCE} ${FASTLED_SOURCE} ${SOURCE} ${HEADERS})
 
 #install(TARGETS rain RUNTIME DESTINATION bin)
